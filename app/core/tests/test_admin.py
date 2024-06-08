@@ -10,7 +10,7 @@ from django.test import Client
 class AdminsiteTests(TestCase):
     """Tests for Django admin."""
 
-    def setup(self):
+    def setUp(self):
         """Create user and client."""
         self.client = Client()
         self.admin_user = get_user_model().objects.create_superuser(
@@ -18,7 +18,7 @@ class AdminsiteTests(TestCase):
             password='testpass123',
         )
         self.client.force_login(self.admin_user)
-        self.user = get_user_model().objects.creatr_user(
+        self.user = get_user_model().objects.create_user(
             email='user@example.com',
             password='testpass123',
             name='Test User'
@@ -45,4 +45,3 @@ class AdminsiteTests(TestCase):
         res = self.client.get(url)
 
         self.assertEqual(res.status_code, 200)
-
