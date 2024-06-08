@@ -9,6 +9,7 @@ from core import models
 
 """Django Admin Customization"""
 
+
 class UserAdmin(BaseUserAdmin):
     """Define the admin pages for users."""
     ordering = ['id']
